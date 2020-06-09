@@ -3,9 +3,11 @@ A SQL client based on web. You don't need to install various SQL client packages
 
 
 # Features
-SQL Query
-Command Execution (e.g. exec stored procedure)
-Database Monitoring 
+- SQL Query
+- Query Result Export (csv,Excel,text)
+- Command Execution (e.g. exec stored procedure)
+- Database Monitoring 
+- Slow Query Trace
 
 # Supported Data Sources
 - PostgreSQL
