@@ -22,7 +22,7 @@ A web-based self-serving SQL client. You can directly query with this lightweigh
 - Hive
 - Impala
 
-# To Get Started
+# To get started
 ```
 docker pull nissl/tbd
 docker run -ti -e CONNECTION_STRING=... -p 5000:5000 nissl/tbd
