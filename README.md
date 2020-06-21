@@ -18,7 +18,7 @@ A web-based self-serving SQL client. You can directly query with this lightweigh
 - PostgreSQL
 - MySQL/MariaDB
 - SQL Server
-- Oracle [TBD]
+- Druid
 - Hive
 - Impala
 
