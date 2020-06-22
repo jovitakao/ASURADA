@@ -8,7 +8,7 @@ namespace ASURADA.Core
     {
         public string ErrorMessage { get; set; }
 
-        public int QueryElapsedTime { get; set; }
-        public object[][] Data { get; set; }
+        public long QueryElapsedTime { get; set; }
+        public List<object[]> Data { get; set; }
     }
 }

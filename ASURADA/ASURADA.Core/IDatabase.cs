@@ -13,5 +13,6 @@ namespace ASURADA.Core
         Task<List<TableInfo>> GetTables(string filter);
         Task<QueryResult> RunSQL(string sql);
 
+        Task<long> GetTotalRowNumber(string sql);
     }
 }

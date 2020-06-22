@@ -1,4 +1,4 @@
-﻿using Npgsql;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace ASURADA.Core.Databases
 {
-    public class PgSqlDatabase : IDatabase
+    public class MySqlDatabase : IDatabase
     {
         DataSourceInfo dataSourceInfo;
-        public PgSqlDatabase(DataSourceInfo dataSourceInfo)
+        public MySqlDatabase(DataSourceInfo dataSourceInfo)
         {
             this.dataSourceInfo = dataSourceInfo;
         }
@@ -20,13 +20,12 @@ namespace ASURADA.Core.Databases
         {
             filter = FilterUtility.ConvertSearchPatternToRegex(filter);
             List<TableInfo> tables = new List<TableInfo>();
-            using (var conn = new NpgsqlConnection(dataSourceInfo.ConnectionString))
+            using (var conn = new MySqlConnection(dataSourceInfo.ConnectionString))
             {
                 await conn.OpenAsync();
                 var tableSchema = conn.GetSchema("Tables");
                 foreach (DataRow r in tableSchema.Rows)
                 {
-                    //var schema = r["table_schema"];
                     var table = r["table_name"].ToString();
                     var type = r["table_type"].ToString();
                     if (Regex.IsMatch(table, filter, RegexOptions.IgnoreCase))
@@ -52,12 +51,12 @@ namespace ASURADA.Core.Databases
             stopwatch.Start();
             try
             {
-                using (var conn = new NpgsqlConnection(dataSourceInfo.ConnectionString))
+                using (var conn = new MySqlConnection(dataSourceInfo.ConnectionString))
                 {
                     await conn.OpenAsync();
-                    var cmd = conn.CreateCommand();
-                    cmd.CommandText = sql;
-                    using (NpgsqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    var cmd = new MySqlCommand(sql);
+                    cmd.Connection = conn;
+                    using (var reader = await cmd.ExecuteReaderAsync())
                     {
                         while (await reader.ReadAsync())
                         {

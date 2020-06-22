@@ -9,8 +9,18 @@ namespace ASURADA.Core
     {
         public static IDatabase Create(DataSourceInfo dataSourceInfo)
         {
-            var database = new PgSqlDatabase(dataSourceInfo);
-            return database;
+            var datasourceType = dataSourceInfo.DataSourceType.ToLower();
+            if (datasourceType == "pgsql" || datasourceType == "postgresql")
+            {
+                var datasource = new PgSqlDatabase(dataSourceInfo);
+                return datasource;
+            }
+            if (datasourceType == "mysql")
+            {
+                var datasource = new MySqlDatabase(dataSourceInfo);
+                return datasource;
+            }
+            throw new NotSupportedException($"The database type '{dataSourceInfo.DataSourceType}' is not supported");
         }
     }
 }
