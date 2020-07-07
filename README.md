@@ -1,5 +1,5 @@
 # What's ASURADA
-A web-based self-serving SQL client. You can directly query with this lightweight tool with a Docker container.
+A web-based self-serving SQL client. You can directly query database with this lightweight tool.
 
 # Why do you need ASURADA
 - Database performance troubleshooting
