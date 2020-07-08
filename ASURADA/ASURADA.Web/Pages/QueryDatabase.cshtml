@@ -1,0 +1,65 @@
+﻿@page
+@model ASURADA.Web.Pages.QueryDatabaseModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<link href="~/lib/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+<link href="~/lib/fancytree/dist/skin-win8/ui.fancytree.min.css" rel="stylesheet">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 border-right">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="dropdown w-100">
+                            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select database...
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">customers</a>
+                                <a class="dropdown-item" href="#">friends</a>
+                                <a class="dropdown-item" href="#">SKU库</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="tree">Objects</label>
+                        <div id="tree"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <label for="sql">Query Text:</label>
+            <textarea class="form-control" rows="10" id="sql"></textarea>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/lib/fancytree/dist/jquery.fancytree-all.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#tree").fancytree({
+                selectMode: 1,
+                autoCollapse: false,
+                autoActivate: true,
+                focusOnSelect: false,
+                source: [
+                    { title: "Node 1", key: "1" },
+                    {
+                        title: "Folder 2", key: "2", folder: true, children: [
+                            { title: "Node 2.1", key: "3", myOwnAttr: "abc" },
+                            { title: "Node 2.2", key: "4" }
+                        ]
+                    }
+                ]
+            });
+        });
+    </script>
+}
