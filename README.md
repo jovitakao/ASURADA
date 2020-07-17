@@ -1,4 +1,6 @@
 # What's ASURADA
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftonyqus%2FASURADA.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftonyqus%2FASURADA?ref=badge_shield)
+
 A web-based self-serving SQL client. You can directly query database with this lightweight tool.
 
 # Why do you need ASURADA
@@ -27,3 +29,7 @@ A web-based self-serving SQL client. You can directly query database with this l
 docker pull nissl/tbd
 docker run -ti -e CONNECTION_STRING=... -p 5000:5000 nissl/tbd
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftonyqus%2FASURADA.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftonyqus%2FASURADA?ref=badge_large)
