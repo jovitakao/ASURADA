@@ -76,7 +76,7 @@ namespace ASURADA.Core.Databases
                 result.ErrorMessage = ex.Message;
             }
             stopwatch.Stop();
-            result.QueryElapsedTime = stopwatch.ElapsedMilliseconds;
+            result.ElapsedTime = stopwatch.ElapsedMilliseconds;
             return result;
         }
     }
