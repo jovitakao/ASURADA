@@ -12,29 +12,32 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="dropdown w-100">
-                            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Select database...
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">customers</a>
-                                <a class="dropdown-item" href="#">friends</a>
-                                <a class="dropdown-item" href="#">SKU库</a>
-                            </div>
+                        @Html.DropDownListFor(x=> x.SelectedDatabase, Model.Databases, new { @class = "form-control" })
+                    </div>
+                    <div class="col-3 text-right">
+                        <span> <button class="btn btn-primary btn-sm"><span class="fa fa-sync" aria-hidden="true"></span></button></span>
+                       </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="tree">Objects</label>
+                            <div id="tree"></div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="tree">Objects</label>
-                        <div id="tree"></div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="col">
-            <label for="sql">Query Text:</label>
-            <textarea class="form-control" rows="10" id="sql"></textarea>
+            <div class="row">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4">
+                    <span class="pull-right"> <button class="btn btn-primary btn-sm">Query</button></span>
+                </div>
+            </div>
+            <div class="row">
+                 <label for="sql">Query Text:</label>
+                <textarea class="form-control" rows="10" id="sql"></textarea>
+            </div>
         </div>
     </div>
 </div>
